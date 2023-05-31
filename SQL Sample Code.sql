@@ -63,7 +63,7 @@ GO
 
 
 
-========================================================================================================
+-- ========================================================================================================
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_GetServerInfoForDiag]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_GetServerInfoForDiag]
 GO
@@ -107,7 +107,7 @@ select Str_OutSourceName as Name,Str_WebServiceURL as URL,Str_UserName as UserNa
 from Tbl_OutSource
 where Int_ContractorID <> '' and Str_Password <> '' and Str_UserName <> '' and Str_WebServiceURL <> ''
 GO
-========================================================================================================
+-- ========================================================================================================
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_VersionDescriptions]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_VersionDescriptions]
 GO
@@ -152,7 +152,7 @@ END
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_VersionFiles]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_VersionFiles]
@@ -203,7 +203,7 @@ BEGIN
 END
 
 GO
-========================================================================================================
+-- ========================================================================================================
 
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_ClientComputerInformation]') AND type in (N'P', N'PC'))
@@ -285,7 +285,7 @@ END
 GO
 
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_ResultWay]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_ResultWay]
@@ -368,7 +368,7 @@ AS
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_ResultWay]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_ResultWay]
@@ -462,7 +462,7 @@ AS
  END
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_ResultWay]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_ResultWay]
@@ -485,7 +485,7 @@ AS
  if @int_state = 1
  BEGIN
 	
-	--=========================================================================================================================
+	-- =========================================================================================================================
 	-- نوبت دهی اینترنتی
 	Declare @InternetQueueAll as bigint=0
 	Declare @InternetQueueViaParsilab as bigint=0
@@ -500,7 +500,7 @@ AS
 	Set @InternetQueueAll = (Select Top 1 AllCount From #Tbl_InternetQueue)
 	Set @InternetQueueViaParsilab = (Select Top 1 ParsilabCount From #Tbl_InternetQueue)
 	Set @InternetQueueViaWeb = (Select Top 1 WebCount From #Tbl_InternetQueue)
-	--=========================================================================================================================
+	-- =========================================================================================================================
 
 
 	-- درخواست پیش پذیرش
@@ -624,7 +624,7 @@ GO
 
 
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Update_Tbl_BackupSchedule]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Update_Tbl_BackupSchedule]
@@ -710,7 +710,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Update_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Update_Full_Diff_BackupLogs]
@@ -773,7 +773,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_BackupSchedule]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_BackupSchedule]
@@ -801,7 +801,7 @@ AS
 	
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_Full_Diff_BackupLogs]
@@ -836,7 +836,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_Full_Diff_BackupLogs]
@@ -908,7 +908,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Delete_BackupSchedule]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Delete_BackupSchedule]
@@ -943,7 +943,7 @@ end
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_BackupSchedule]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_BackupSchedule]
@@ -1013,7 +1013,7 @@ END
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tbl_Full_Diff_BackupLogs]') AND type in (N'U'))
 BEGIN
@@ -1053,7 +1053,7 @@ CREATE TABLE [dbo].[Tbl_Full_Diff_BackupLogs](
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tbl_BackupSchedule]') AND type in (N'U'))
 BEGIN
@@ -1099,7 +1099,7 @@ end
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_Full_Diff_BackupLogs]
@@ -1135,7 +1135,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_VersionFiles]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_VersionFiles]
 GO
@@ -1172,7 +1172,7 @@ AS
  
  END
 
-========================================================================================================
+-- ========================================================================================================
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_VersionFiles]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_VersionFiles]
 GO
@@ -1247,7 +1247,7 @@ AS
  END
 
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_Full_Diff_BackupSubLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_Full_Diff_BackupSubLogs]
@@ -1315,7 +1315,7 @@ BEGIN
 end
 Go
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_VersionFiles]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_VersionFiles]
@@ -1367,7 +1367,7 @@ END
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_Full_Diff_BackupLogs]
@@ -1400,7 +1400,7 @@ BEGIN
 		end
 end
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_Full_Diff_BackupLogs]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_Full_Diff_BackupLogs]
@@ -1436,7 +1436,7 @@ BEGIN
 end
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_LastAutoBackupInfo]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_LastAutoBackupInfo]
@@ -1478,7 +1478,7 @@ select * from Tbl_Full_Diff_BackupLogs where cast(Str_BackupSize as bigint) <>0 
 
 end
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Insert_ClientComputerInformation]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Insert_ClientComputerInformation]
@@ -1529,7 +1529,7 @@ END
 
 GO
 
-========================================================================================================
+-- ========================================================================================================
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_Get_ResultWay]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_Get_ResultWay]
@@ -1553,7 +1553,7 @@ AS
  if @int_state = 1
  BEGIN
 	
-	--=========================================================================================================================
+	-- =========================================================================================================================
 	-- کل بیماران
 	Declare @AllPatient as bigint=0
 
@@ -1693,7 +1693,7 @@ AS
 
  END
 
-========================================================================================================
+-- ========================================================================================================
 
 
 
