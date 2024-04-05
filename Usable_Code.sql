@@ -39,7 +39,9 @@ CROSS APPLY OPENJSON(BulkColumn) WITH (
 
 
 
-
+  --SELECT TABLE_NAME into #TempTables FROM [tripsmanagement].INFORMATION_SCHEMA.TABLES 
+  --where TABLE_TYPE in('BASE TABLE') and ( left(TABLE_NAME,9) like 'nyc-2023-' or left(TABLE_NAME,9) like 'nyc-2022-')
+  --select * from #TempTables
 
 declare @columnValue as nvarchar(30)
 declare @columnValue2 as nvarchar(30)
