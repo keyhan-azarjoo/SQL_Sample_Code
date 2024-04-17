@@ -92,4 +92,28 @@ SET @SQL = ''
 
 
 -- =======================================================================================================================================================================================================
+-- difference and 10% range of rows 
+
+
+declare @range as float = 0.1
+
+select trips.routeId, startedDayOfWeek, startedMonth, TotalDuration,srtd.[distance] as mapboxdistance,TotalDurationMs,  0,
+
+
+		left(TotalDurationMs,len(TotalDurationMs)-3) as tripDur,
+		srtd.[duration] mapDur,0,
+		--ABS(cast(srtd.[duration] as float)  - cast(left(TotalDurationMs,len(TotalDurationMs)-3) as float)) AS diff,
+		--cast(srtd.[duration] as float) - (cast(srtd.[duration] as float)*@range) as startrange,
+		cast(srtd.[duration] as float) + (cast(srtd.[duration] as float)*@range) as endrange
+
+from [2023] as trips
+inner join [santander-routes-time-distance] as srtd 
+on trips.routeId = srtd.routeId
+where startedMonth in('Jun') and [routes] in ('different') 
+ 
+    --And cast(left(TotalDurationMs,len(TotalDurationMs)-3) as float) >= cast(srtd.[duration] as float) - (cast(srtd.[duration] as float)*@range) 
+	AND cast(left(TotalDurationMs,len(TotalDurationMs)-3) as float) <= cast(srtd.[duration] as float) + (cast(srtd.[duration] as float)*@range);
+
+-- =======================================================================================================================================================================================================
+
 
